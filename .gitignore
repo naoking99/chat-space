@@ -18,3 +18,4 @@
 
 # アップロードした画像をgitIgnore
 public/uploads/*
+
