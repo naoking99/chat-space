@@ -64,9 +64,7 @@
 |body|text|
 |user_id|references|null: false, foreign_key: ture|
 |group_id|references|null: false, foreign_key: ture|
-|image|||
-
-※imageカラムはImageMaginを利用するため実質imageカラムはMessageテーブルに追加されない
+|image|text||
 
 ### Association
 
