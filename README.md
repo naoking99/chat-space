@@ -21,7 +21,7 @@
 ### Association
 
 - has_many :user_groups
-- has_many :groups, thorough: :user_groups
+- has_many :groups, through: :user_groups
 - has_many :messages
 
 
