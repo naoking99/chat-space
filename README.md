@@ -1,24 +1,74 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby version : 2.3.1
 
-Things you may want to cover:
+# DB設計
 
-* Ruby version
+## Users Table
 
-* System dependencies
+|column|type|options|
+|------|----|-------|
+|id|integer|null: false|
+|name|string|null: false|
+|email|string|null: false|
+|password|string|null :false|
+|avatar|||
 
-* Configuration
+※email, passwordはdeviseで自動設定されるものを使用
 
-* Database creation
+※avatarはImageMagickを使用するため実際はavatarカラムはuserテーブルに追加されない
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :user_groups
+- has_many :groups, thorough: :user_groups
+- has_many :messages
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## Groups Table
+
+|column|type|options|
+|------|----|-------|
+|id|integer|null: false|
+|name|string|null: false|
+
+### Association
+
+- has_many :user_groups
+- has_many :users, thorough: :user_groups
+- has_many :messages
+
+
+
+## UserGroups Table
+
+|column|type|options|
+|------|----|-------|
+|id|integer|null: false|
+|user_id|reference|null: false, foreign_key: ture|
+|group_id|reference|null: false, foreign_key: ture|
+
+### Association
+
+- belongs_to :user
+- belongs_to :group
+
+
+
+## Messages Table
+
+|column|type|options|
+|------|----|-------|
+|id|integer|null: false|
+|body|text|
+|user_id|reference|null: false, foreign_key: ture|
+|group_id|reference|null: false, foreign_key: ture|
+|image|||
+
+※imageカラムはImageMaginを利用するため実質imageカラムはMessageテーブルに追加されない
+
+### Association
+
+- belongs_to :user
+- belongs_to :group
