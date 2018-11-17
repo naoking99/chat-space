@@ -46,8 +46,8 @@
 |column|type|options|
 |------|----|-------|
 |id|integer|null: false|
-|user_id|references|null: false, foreign_key: ture|
-|group_id|references|null: false, foreign_key: ture|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -62,8 +62,8 @@
 |------|----|-------|
 |id|integer|null: false|
 |body|text|
-|user_id|references|null: false, foreign_key: ture|
-|group_id|references|null: false, foreign_key: ture|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 |image|text||
 
 ### Association
