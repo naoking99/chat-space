@@ -19,3 +19,6 @@
 # アップロードした画像をgitIgnore
 public/uploads/*
 
+#helperファイル、testファイルをignore
+app/helpers/
+test/
