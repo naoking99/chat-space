@@ -1,0 +1,33 @@
+.side-menu-header{
+  background-color: #253141;
+  color: #fff;
+  height: 96px;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 0 0 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__user-name{
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__function{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__create-group-button{
+    box-sizing: border-box;
+    padding: 0 10px 0 20px;
+  }
+
+  &__edit-user-button{
+    box-sizing: border-box;
+    padding: 0 20px 0 10px;
+
+
+  }
+}

@@ -1,0 +1,41 @@
+.chat-footer{
+  background-color: #dbdbdb;
+  height: 90px;
+  padding: 0 40px;
+  width: calc(100vw - 380px);
+
+  &__form{
+  display: flex;
+  }
+
+  &__input-box{
+    height: 50px;
+    width: calc(100vw - 300px - 40px - 40px - 80px - 15px);
+    margin: 20px 15px 20px 0;
+    background-color: #fff;
+    color: #434a54;
+    font-size: 16px;
+    line-height: 50px;
+    vertical-align: middle;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  &__image-upload-button{
+    position: absolute;
+    width: 20px;
+    bottom: 17px;
+    right: calc(40px + 80px + 15px + 10px);
+    line-height: 50px;
+  }
+
+  &__send-button{
+    height: 50px;
+    width: 80px;
+    margin: 20px 0;
+    background-color: $sky-blue;
+    text-align: center;
+    color: #fff;
+    line-height: 50px;
+  }
+}

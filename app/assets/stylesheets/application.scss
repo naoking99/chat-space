@@ -1,2 +1,24 @@
 @import "./reset";
 @import "font-awesome";
+@import "_variable";
+
+/* チャット画面用 */
+@import "_chat-page-wrapper";
+
+@import "_side-menu";
+@import "_side-menu-header";
+@import "_side-menu-body";
+
+@import "_chat";
+@import "_chat-header";
+@import "_chat-body";
+@import "_chat-footer";
+
+/* その他 */
+@import "_alert";
+
+
+
+
+
+
