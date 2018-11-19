@@ -5,8 +5,10 @@
     .side-menu-header
       .side-menu-header__user-name 田中太郎
       .side-menu-header__function
-        .side-menu-header__create-group-button ★
-        .side-menu-header__edit-user-button ★
+        %a.side-menu-header__create-group-button{href: ""}
+          = fa_icon "edit"
+        %a.side-menu-header__edit-user-button{href: ""}
+          = fa_icon "cog"
     .side-menu-body
       .side-menu-body__group-list
         .side-menu-body__group-name グループA
@@ -34,6 +36,8 @@
     .chat-footer
       %form.chat-footer__form
         %input.chat-footer__input-box{placeholder: "type a message"}
-        .chat-footer__image-upload-button ★
+        %label.chat-footer__image-upload-button{for: "chat-footer__upload-icon"}
+          = fa_icon "image"
+          %input{type: "file", id: "chat-footer__upload-icon"}
         %input.chat-footer__send-button{:type => "submit", value: "Send"}
 
