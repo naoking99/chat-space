@@ -1,13 +1,12 @@
-.alert_type_success チャットグループが作成されました。
-
 .chat-page-wrapper
   .side-menu
     .side-menu-header
-      .side-menu-header__user-name 田中太郎
+      .side-menu-header__user-name
+        = current_user.name
       .side-menu-header__function
         %a.side-menu-header__create-group-button{href: ""}
           = fa_icon "edit"
-        %a.side-menu-header__edit-user-button{href: ""}
+        = link_to edit_user_path(current_user), class: "side-menu-header__edit-user-button" do
           = fa_icon "cog"
     .side-menu-body
       .side-menu-body__group-list
