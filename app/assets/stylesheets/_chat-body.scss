@@ -1,0 +1,30 @@
+.chat-body{
+  background-color: #fafafa;
+  padding: 46px 40px 0;
+  overflow: auto;
+  height: calc(100vh - 262px);
+  width: 100%;
+
+  &__message{
+    padding: 0 0 40px;
+
+  }
+
+  &__message-user-name{
+    font-size: 16px;
+    font-weight: bold;
+    color: $dark-gray;
+    display: inline;
+  }
+
+  &__message-created-time{
+    font-size: 12px;
+    color: $light-gray;
+    display: inline;
+  }
+
+  &__message-content{
+    font-size: 14px;
+    color: $dark-gray;
+  }
+}

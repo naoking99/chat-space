@@ -1,0 +1,43 @@
+.alert_type_success チャットグループが作成されました。
+
+.chat-page-wrapper
+  .side-menu
+    .side-menu-header
+      .side-menu-header__user-name 田中太郎
+      .side-menu-header__function
+        %a.side-menu-header__create-group-button{href: ""}
+          = fa_icon "edit"
+        %a.side-menu-header__edit-user-button{href: ""}
+          = fa_icon "cog"
+    .side-menu-body
+      .side-menu-body__group-list
+        .side-menu-body__group-name グループA
+        .side-menu-body__group-message まだメッセージはありません。
+      .side-menu-body__group-list
+        .side-menu-body__group-name グループB
+        .side-menu-body__group-message まだメッセージはありません。
+
+  .chat
+    .chat-header
+      .chat-header__left-contents
+        .chat-header__group-name グループA
+        .chat-header__group-members Members: 田中太郎 山田太郎
+      .chat-header__edit-button Edit
+    .chat-body
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+
+    .chat-footer
+      %form.chat-footer__form
+        %input.chat-footer__input-box{placeholder: "type a message"}
+        %label.chat-footer__image-upload-button{for: "chat-footer__upload-icon"}
+          = fa_icon "image"
+          %input{type: "file", id: "chat-footer__upload-icon"}
+        %input.chat-footer__send-button{type: "submit", value: "Send"}
+

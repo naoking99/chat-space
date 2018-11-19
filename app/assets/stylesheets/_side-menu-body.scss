@@ -1,0 +1,17 @@
+.side-menu-body{
+  background-color: #2f3e51;
+  color: #fff;
+  height: calc(100% - 96px);
+  width: 300px;
+  box-sizing: border-box;
+  padding: 20px 0 0 20px;
+
+  &__group-name{
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  &__group-message{
+    font-size: 11px;
+    margin-bottom: 40px;
+  }
+}
