@@ -13,7 +13,7 @@
     width: calc(100vw - 300px - 40px - 40px - 80px - 15px);
     margin: 20px 15px 20px 0;
     background-color: #fff;
-    color: #434a54;
+    color: $dark-gray;
     font-size: 16px;
     line-height: 50px;
     vertical-align: middle;
@@ -37,5 +37,11 @@
     text-align: center;
     color: #fff;
     line-height: 50px;
+  }
+}
+
+#chat-footer{
+  &__upload-icon{
+    display: none;
   }
 }
