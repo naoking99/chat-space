@@ -2,8 +2,9 @@
   background-color: #fafafa;
   padding: 46px 40px 0;
   overflow: auto;
-  height: calc(100vh - 262px);
+  height: calc(100vh - 186px);
   width: 100%;
+  box-sizing: border-box;
 
   &__message{
     padding: 0 0 40px;
