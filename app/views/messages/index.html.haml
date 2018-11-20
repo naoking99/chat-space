@@ -4,17 +4,18 @@
       .side-menu-header__user-name
         = current_user.name
       .side-menu-header__function
-        %a.side-menu-header__create-group-button{href: ""}
+        = link_to new_group_path, class: "side-menu-header__create-group-button" do
           = fa_icon "edit"
         = link_to edit_user_path(current_user), class: "side-menu-header__edit-user-button" do
           = fa_icon "cog"
     .side-menu-body
-      .side-menu-body__group-list
-        .side-menu-body__group-name グループA
-        .side-menu-body__group-message まだメッセージはありません。
-      .side-menu-body__group-list
-        .side-menu-body__group-name グループB
-        .side-menu-body__group-message まだメッセージはありません。
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group), class: "side-menu-body__group-list" do
+          .side-menu-body__group-name
+            = group.name
+          .side-menu-body__group-message
+            まだメッセージはありません。
+
 
   .chat
     .chat-header
@@ -31,6 +32,47 @@
         .chat-body__message-user-name 田中太郎
         .chat-body__message-created-time 2018/10/12 06:33:23
         .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+      .chat-body__message
+        .chat-body__message-user-name 田中太郎
+        .chat-body__message-created-time 2018/10/12 06:33:23
+        .chat-body__message-content こんにちは
+
 
     .chat-footer
       %form.chat-footer__form

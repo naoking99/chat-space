@@ -1,17 +1,24 @@
 .side-menu-body{
   background-color: #2f3e51;
   color: #fff;
-  height: calc(100% - 96px);
+  height: calc(100vh - 96px);
   width: 300px;
   box-sizing: border-box;
   padding: 20px 0 0 20px;
+  overflow: scroll;
+
+  &__group-list{
+    text-decoration: none;
+  }
 
   &__group-name{
     font-size: 15px;
     margin-bottom: 5px;
+    color: #fff;
   }
   &__group-message{
     font-size: 11px;
     margin-bottom: 40px;
+    color: #fff;
   }
 }
