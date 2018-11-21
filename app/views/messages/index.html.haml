@@ -1,21 +1,5 @@
 .chat-page-wrapper
-  .side-menu
-    .side-menu-header
-      .side-menu-header__user-name
-        = current_user.name
-      .side-menu-header__function
-        = link_to new_group_path, class: "side-menu-header__create-group-button" do
-          = fa_icon "edit"
-        = link_to edit_user_path(current_user), class: "side-menu-header__edit-user-button" do
-          = fa_icon "cog"
-    .side-menu-body
-      - current_user.groups.each do |group|
-        = link_to group_messages_path(group), class: "side-menu-body__group-list" do
-          .side-menu-body__group-name
-            = group.name
-          .side-menu-body__group-message
-            まだメッセージはありません。
-
+  = render 'shared/side_bar'
 
   .chat
     .chat-header
@@ -23,62 +7,17 @@
         .chat-header__group-name グループA
         .chat-header__group-members Members: 田中太郎 山田太郎
       .chat-header__edit-button Edit
-    .chat-body
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
-      .chat-body__message
-        .chat-body__message-user-name 田中太郎
-        .chat-body__message-created-time 2018/10/12 06:33:23
-        .chat-body__message-content こんにちは
 
+    .chat-body
+      = render @messages
 
     .chat-footer
-      %form.chat-footer__form
-        %input.chat-footer__input-box{placeholder: "type a message"}
-        %label.chat-footer__image-upload-button{for: "chat-footer__upload-icon"}
+      = form_for [@group, @message], class: "chat-footer__form" do |f|
+        = f.text_field :content, class: 'chat-footer__input-box', placeholder: 'type a message'
+        = f.label :image, class: "chat-footer__image-upload-button" do
           = fa_icon "image"
-          %input{type: "file", id: "chat-footer__upload-icon"}
-        %input.chat-footer__send-button{type: "submit", value: "Send"}
+          = f.file_field :image, id: "chat-footer__upload-icon"
+        = f.submit "Send", class: "chat-footer__send-button"
+
+
 

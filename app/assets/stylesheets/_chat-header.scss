@@ -1,6 +1,7 @@
 .chat-header{
+  box-sizing: border-box;
   height: 96px;
-  width: calc(100vw - 380px);
+  width: calc(100vw - 300px);
   border-bottom: solid 2px #fff;
   border-bottom-color: #eeeeee;
   padding: 0 40px;
@@ -24,12 +25,13 @@
   }
 
   &__edit-button{
+    box-sizing: border-box;
     border: solid 2px $sky-blue;
     color: $sky-blue;
     height: 40px;
     width: 80px;
     text-align: center;
-    line-height: 40px;
+    line-height: 36px;
     float: right;
     margin: 28px 0;
   }

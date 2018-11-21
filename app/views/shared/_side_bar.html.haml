@@ -1,17 +1,16 @@
-.chat-page-wrapper
-  .side-menu
-    .side-menu-header
-      .side-menu-header__user-name
-        = current_user.name
-      .side-menu-header__function
-        = link_to new_group_path, class: "side-menu-header__create-group-button" do
-          = fa_icon "edit"
-        = link_to edit_user_path(current_user), class: "side-menu-header__edit-user-button" do
-          = fa_icon "cog"
-    .side-menu-body
-      - current_user.groups.each do |group|
-        = link_to group_messages_path(group), class: "side-menu-body__group-list" do
-          .side-menu-body__group-name
-            = group.name
-          .side-menu-body__group-message
-            まだメッセージはありません。
+.side-menu
+  .side-menu-header
+    .side-menu-header__user-name
+      = current_user.name
+    .side-menu-header__function
+      = link_to new_group_path, class: "side-menu-header__create-group-button" do
+        = fa_icon "edit"
+      = link_to edit_user_path(current_user), class: "side-menu-header__edit-user-button" do
+        = fa_icon "cog"
+  .side-menu-body
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group), class: "side-menu-body__group-list" do
+        .side-menu-body__group-name
+          = group.name
+        .side-menu-body__group-message
+          = group.show_last_message
