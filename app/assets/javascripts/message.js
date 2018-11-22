@@ -42,10 +42,10 @@ $(function(){
     .fail(function(message){
       alert('メッセージを入力してください。');
     })
-    .always(function(message)){
+    .always(function(message){
       $('.chat-footer__input-box').val('');
       $('#message_image').val('')
       $('.chat-footer__send-button').prop("disabled", false);
-    }
+    })
   })
 });
