@@ -37,14 +37,15 @@ $(function(){
     .done(function(message){
       var html = buildHTML(message);
       $('.chat-body').append(html);
-      $('.chat-footer__input-box').val('');
-      $('#message_image').val('')
       $('.chat-body').animate({scrollTop: $('.chat-body').get(0).scrollHeight}, 'slow');
-      $('.chat-footer__send-button').prop("disabled", false);
     })
     .fail(function(message){
       alert('メッセージを入力してください。');
-      $('.chat-footer__send-button').prop("disabled", false);
     })
+    .always(function(message)){
+      $('.chat-footer__input-box').val('');
+      $('#message_image').val('')
+      $('.chat-footer__send-button').prop("disabled", false);
+    }
   })
 });
