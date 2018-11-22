@@ -1,7 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var message_content = message.content ? message.content : ""
-    var message_image = message.image["url"] ? message.image["url"] : ""
+    var message_image = message.image ? message.image : ""
 
     var html = `<div class="chat-body__message">
                   <div class="chat-body__message-user-name">
@@ -11,7 +10,7 @@ $(function(){
                     ${message.created_at}
                   </div>
                   <div class="chat-body__message-content">
-                    ${message_content}
+                    ${message.content}
                     <div class="lower-message__image">
                     <img src=${message_image}>
                     </div>
