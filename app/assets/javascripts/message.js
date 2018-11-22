@@ -1,7 +1,9 @@
 $(function(){
   function buildHTML(message){
     var message_content = message.content ? message.content : ""
-    var message_image = message.image["url"] ? '<img src=${message.image["url"]}>' : ""
+    var message_image = message.image["url"] ? message.image["url"] : ""
+    console.log(message.image["url"])
+    console.log(message_image)
 
     var html = `<div class="chat-body__message">
                   <div class="chat-body__message-user-name">
@@ -13,7 +15,7 @@ $(function(){
                   <div class="chat-body__message-content">
                     ${message_content}
                     <div class="lower-message__image">
-                    ${message_image}
+                    <img src=${message_image}>
                     </div>
                   </div>
                 </div>`
@@ -39,6 +41,7 @@ console.log('load_first')
       var html = buildHTML(message);
       $('.chat-body').append(html);
       $('.chat-footer__input-box').val('');
+      $('#message_image').val('')
       $('.chat-body').animate({scrollTop: $('.chat-body').get(0).scrollHeight}, 'slow');
       $('.chat-footer__send-button').prop("disabled", false);
     })
