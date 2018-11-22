@@ -12,7 +12,7 @@
       = render @messages
 
     .chat-footer
-      = form_for [@group, @message], class: "chat-footer__form" do |f|
+      = form_for [@group, @message], html: {class: "chat-footer__form"} do |f|
         = f.text_field :content, class: 'chat-footer__input-box', placeholder: 'type a message'
         = f.label :image, class: "chat-footer__image-upload-button" do
           = fa_icon "image"
