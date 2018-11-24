@@ -1,9 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var message_content = message.content ? message.content : ""
-    var message_image = message.image["url"] ? message.image["url"] : ""
-    console.log(message.image["url"])
-    console.log(message_image)
+    var message_image = message.image ? message.image : ""
 
     var html = `<div class="chat-body__message">
                   <div class="chat-body__message-user-name">
@@ -13,7 +10,7 @@ $(function(){
                     ${message.created_at}
                   </div>
                   <div class="chat-body__message-content">
-                    ${message_content}
+                    ${message.content}
                     <div class="lower-message__image">
                     <img src=${message_image}>
                     </div>
@@ -22,10 +19,9 @@ $(function(){
     return html;
   }
 
-console.log('load_first')
+
 
   $('.chat-footer__form').on('submit', function(e){
-    console.log('pushed submit button');
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
@@ -40,13 +36,14 @@ console.log('load_first')
     .done(function(message){
       var html = buildHTML(message);
       $('.chat-body').append(html);
-      $('.chat-footer__input-box').val('');
-      $('#message_image').val('')
       $('.chat-body').animate({scrollTop: $('.chat-body').get(0).scrollHeight}, 'slow');
-      $('.chat-footer__send-button').prop("disabled", false);
     })
     .fail(function(message){
       alert('メッセージを入力してください。');
+    })
+    .always(function(message){
+      $('.chat-footer__input-box').val('');
+      $('#message_image').val('')
       $('.chat-footer__send-button').prop("disabled", false);
     })
   })
