@@ -42,7 +42,10 @@ $(function() {
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: { keyword: input, selected_users: selected_users },
+        data: {
+          keyword: input,
+          selected_users: selected_users
+        },
         dataType: 'json'
       })
       .done(function(users){
