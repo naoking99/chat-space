@@ -18,22 +18,32 @@ $(function(){
     $(".chat-body").append(html);
   }
 
-  setInterval(function(){
-    lastMessageId = $(".chat-body__message:last").data("message-id");
+  var setIntervaler = setInterval(function(){
 
-    $.ajax({
-      type: "get",
-      url: location.href,
-      data: {lastMessageId: lastMessageId},
-      dataType: "json"
-    })
-    .done(function(autoMessages){
-      if (autoMessages.length != 0){
+    if (location.href.match(/\/groups\/\d+\/messages/)){
 
-        autoMessages.forEach(function(autoMessage){
-          appendAutoMessage(autoMessage);
+      if ($(".chat-body__message:last")){
+        lastMessageId = $(".chat-body__message:last").data("message-id");
+
+        $.ajax({
+          type: "get",
+          url: location.href,
+          data: {lastMessageId: lastMessageId},
+          dataType: "json"
         })
+        .done(function(autoMessages){
+          if (autoMessages.length != 0){
+
+            autoMessages.forEach(function(autoMessage){
+              appendAutoMessage(autoMessage);
+            })
+          }
+        })
+
       }
-    })
+
+    }
+
   }, 5000);
+
 });
