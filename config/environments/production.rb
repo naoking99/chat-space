@@ -20,9 +20,9 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
 
-  # 本番環境のコンパイラエラーのためtrueに変える
+  # 本番環境のコンパイラエラーのためtrueに変えるorコメントアウトする
   # config.assets.js_compressor = :uglifier
-  config.assets.js_compressor = Uglifier.new(harmony: true)
+  # config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
