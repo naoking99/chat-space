@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   function appendAutoMessage(message){
     var message_image = message.image ? message.image : ""
     var html = `<div class="chat-body__message" data-message-id="${message.id}">
