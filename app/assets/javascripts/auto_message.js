@@ -22,8 +22,7 @@ $(function(){
 
     if (location.href.match(/\/groups\/\d+\/messages/)){
 
-      if ($(".chat-body__message:last")){
-        lastMessageId = $(".chat-body__message:last").data("message-id");
+        lastMessageId = $(".chat-body__message:last").data("message-id") || 0
 
         $.ajax({
           type: "get",
@@ -40,7 +39,6 @@ $(function(){
           }
         })
 
-      }
 
     }
 
