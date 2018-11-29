@@ -22,3 +22,6 @@ public/uploads/*
 #helperファイル、testファイルをignore
 app/helpers/
 test/
+
+#AWSのアクセスキーなどがあるからignore
+config/secrets.yml
