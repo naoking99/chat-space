@@ -20,33 +20,43 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
+  function after_send() {
+    $('.chat-footer__input-box').val('');
+    $('#message_image').val('');
+    $('.chat-footer__send-button').prop("disabled", false);
+  }
 
 
   $('.chat-footer__form').on('submit', function(e){
     e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
 
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    })
-    .done(function(message){
-      var html = buildHTML(message);
-      $('.chat-body').append(html);
-      $('.chat-body').animate({scrollTop: $('.chat-body').get(0).scrollHeight}, 'slow');
-    })
-    .fail(function(message){
-      alert('メッセージを入力してください。');
-    })
-    .always(function(message){
-      $('.chat-footer__input-box').val('');
-      $('#message_image').val('')
-      $('.chat-footer__send-button').prop("disabled", false);
-    })
+      var formData = new FormData(this);
+      var url = $(this).attr('action');
+
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        processData: false,
+        contentType: false
+      })
+      .done(function(message){
+        if ($(".chat-footer__input-box").val() == "" && $('#message_image').val() == ""){
+          after_send();
+        }else{
+          var html = buildHTML(message);
+          $('.chat-body').append(html);
+          $('.chat-body').animate({scrollTop: $('.chat-body').get(0).scrollHeight}, 'slow');
+        }
+      })
+      .fail(function(message){
+        console.log("faile")
+        alert('メッセージを入力してください。 by message.js');
+      })
+      .always(function(message){
+        after_send();
+      })
+
   })
 });
