@@ -13,6 +13,9 @@ module ChatSpace
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :ja
 
+    #日本時間に変更
+    config.time_zone = 'Asia/Tokyo'
+
     config.generators do |g|
       g.stylesheets false
       g.javascripts false
