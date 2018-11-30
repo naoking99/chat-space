@@ -43,6 +43,7 @@ $(document).on('turbolinks:load', function() {
       })
       .done(function(message){
         if ($(".chat-footer__input-box").val() == "" && $('#message_image').val() == ""){
+          alert('メッセージを入力してください。');
           after_send();
         }else{
           var html = buildHTML(message);
@@ -52,7 +53,7 @@ $(document).on('turbolinks:load', function() {
       })
       .fail(function(message){
         console.log("faile")
-        alert('メッセージを入力してください。 by message.js');
+        alert('メッセージを入力してください。');
       })
       .always(function(message){
         after_send();
